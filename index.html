@@ -5,45 +5,197 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Compras Lovers</title>
 <style>
-  body { margin: 0; font-family: Arial, sans-serif; background: #fff; color: #333; }
-  header { background: #f8f8f8; padding: 20px; text-align: center; }
-  header h1 { margin: 0; color: #e60023; font-size: 2em; }
-  header p { margin: 5px 0 0; font-size: 1em; }
-  nav { background: #333; }
-  nav ul { margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
-  nav li { margin: 0; }
-  nav a { display: block; padding: 15px 20px; color: #fff; text-decoration: none; }
-  nav a:hover { background: #b8001b; }
+  body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background: #fdfdfd; color: #333; }
+  a { text-decoration: none; color: inherit; }
 
-  /* Carrusel */
-  .carousel { position: relative; overflow: hidden; max-width: 1200px; margin: 20px auto; border-radius: 10px; }
-  .slides { display: flex; transition: transform 0.5s ease-in-out; }
-  .slides img { width: 100%; flex-shrink: 0; }
+  /* Cabecera */
+  header {
+    position: relative;
+    text-align: center;
+    color: #fff;
+  }
+  header img.hero {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    filter: brightness(70%);
+  }
+  header .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  header .title h1 { font-size: 3em; margin: 0; color: #e60023; }
+  header .title p { font-size: 1.2em; margin-top: 10px; }
+
+  /* Menú flotante */
+  nav {
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+  }
+  nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+  nav li { margin: 0 15px; }
+  nav a { color: #fff; padding: 15px; display: block; transition: 0.3s; }
+  nav a:hover { color: #e60023; }
 
   /* Productos */
-  .featured-products { padding: 40px 20px; text-align: center; }
-  .featured-products h2 { margin-bottom: 20px; }
-  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; }
-  .product-card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; transition: 0.3s; }
-  .product-card:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-  .product-card img { width: 100%; height: auto; }
-  .product-card h3 { margin: 10px; font-size: 1.1em; }
-  .price { color: #e60023; font-size: 1.1em; margin: 0 10px 10px; }
-  .btn { display: inline-block; margin: 10px; padding: 10px 15px; background: #e60023; color: #fff; text-decoration: none; border-radius: 5px; }
-  .btn:hover { background: #b8001b; }
+  section.products {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  section.products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 30px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+  .card img { width: 100%; display: block; }
+  .card .info { padding: 20px; text-align: center; }
+  .card .info h3 { margin: 0 0 10px; }
+  .card .info .price { color: #e60023; font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
+  .card .info .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #e60023;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  .card .info .btn:hover { background: #b8001b; }
 
-  footer { background: #f1f1f1; padding: 20px; text-align: center; font-size: 0.9em; margin-top: 40px; }
-  footer a { color: #333; text-decoration: none; margin: 0 5px; }
-  footer a:hover { text-decoration: underline; }
+  /* Footer */
+  footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  footer a { color: #e60023; margin: 0 10px; transition: 0.3s; }
+  footer a:hover { color: #fff; }
+
+  /* Responsivo */
+  @media(max-width:768px){
+    header h1 { font-size: 2.2em; }
+    header p { font-size: 1em; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Compras Lovers</h1>
-  <p>Tus compras favoritas en un solo lugar</p>
+  <img class="hero" src="https://via.placeholder.com/1600x600/333/ffffff?text=Compras+Lovers+Elegante" alt="Hero Banner">
+  <div class="title">
+    <h1>Compras Lovers</h1>
+    <p>Tus compras favoritas en un solo lugar</p>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Ofertas</a></li>
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Mi Cuenta</a></li>
+    </ul>
+  </nav>
 </header>
 
-<nav>
-  <ul>
-    <li><a h
+<section class="products">
+  <h2>Productos Destacados</h2>
+  <div class="grid">
+    <!-- 8 productos -->
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+1" alt="Producto 1">
+      <div class="info">
+        <h3>Producto 1</h3>
+        <p class="price">$19.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+2" alt="Producto 2">
+      <div class="info">
+        <h3>Producto 2</h3>
+        <p class="price">$24.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+3" alt="Producto 3">
+      <div class="info">
+        <h3>Producto 3</h3>
+        <p class="price">$29.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+4" alt="Producto 4">
+      <div class="info">
+        <h3>Producto 4</h3>
+        <p class="price">$39.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+5" alt="Producto 5">
+      <div class="info">
+        <h3>Producto 5</h3>
+        <p class="price">$44.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+6" alt="Producto 6">
+      <div class="info">
+        <h3>Producto 6</h3>
+        <p class="price">$49.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+7" alt="Producto 7">
+      <div class="info">
+        <h3>Producto 7</h3>
+        <p class="price">$54.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300?text=Producto+8" alt="Producto 8">
+      <div class="info">
+        <h3>Producto 8</h3>
+        <p class="price">$59.990</p>
+        <a href="#" class="btn">Agregar al carrito</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Compras Lovers. Todos los derechos reservados.</p>
+  <p>
+    <a href="#">Términos y condiciones</a> |
+    <a href="#">Política de privacidad</a> |
+    <a href="#">Instagram</a> |
+    <a href="#">Facebook</a>
+  </p>
+</footer>
+
+</body>
+</html>
