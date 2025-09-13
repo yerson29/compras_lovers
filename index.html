@@ -1,91 +1,77 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>compraslovers</title>
-    <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="dQu8G0CaeFsN5amM_4ibQyhpY3Py5cTCvANnxOm48AANnaK2Dg27uMIwiWswPySJGpmyF_KfTO6FiXRlbxl-7A" />
-    <script src="https://files.jumpseller.com/javascripts/dist/error-landing.js"></script>
-    <link rel="stylesheet" href="https://files.jumpseller.com/stylesheets/error-landing/error.css" />
-<link rel="stylesheet" href="https://files.jumpseller.com/stylesheets/error-landing/fontawesome-pro-6.5.1/css/fontawesome.min.css" />
-<link rel="stylesheet" href="https://files.jumpseller.com/stylesheets/error-landing/fontawesome-pro-6.5.1/css/brands.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compras Lovers</title>
+  <style>
+    /* Estilos básicos, puedes personalizar luego */
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+    header { background: #f8f8f8; padding: 20px; text-align: center; }
+    nav { background: #333; }
+    nav ul { margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; }
+    nav ul li { margin: 0 15px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+    .hero { position: relative; overflow: hidden; }
+    .hero img { width: 100%; height: auto; display: block; }
+    .featured-products { padding: 40px 20px; text-align: center; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; }
+    .product-card { border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+    .product-card img { width: 100%; height: auto; }
+    .product-card h3 { margin: 15px 0 10px; font-size: 1.2em; }
+    .product-card p.price { color: #e60023; font-size: 1.1em; margin: 0; }
+    .footer { background: #f1f1f1; padding: 20px; text-align: center; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Compras Lovers</h1>
+    <p>Tus productos favoritos, aquí y ahora.</p>
+  </header>
   
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Ofertas</a></li>
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Mi Cuenta</a></li>
+    </ul>
+  </nav>
 
+  <section class="hero">
+    <img src="https://via.placeholder.com/1200x400?text=Banner+Principal" alt="Banner principal">
+  </section>
 
-
-
-
-
-
-
-
-
-<script src="https://files.jumpseller.com/javascripts/dist/jumpseller-2.0.0.js" defer="defer"></script></head>
-
-  <body>
-    <div class="container-gral">
-      <div class="d-flex flex-column justify-content-between fill-window-height">
-        <header>
-            <div class="p-3 text-right">
-              <button class="btn px-4 btn btn-outline-light" data-toggle="modal" data-target="#password-modal">Entrar</button>
-            </div>
-            <div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="password-modallLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content border-0 text-left">
-                  <div class="modal-header border-0 pb-2">
-                    <h5 class="modal-title font-weight-normal">Ingrese la contraseña de la tienda</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <small class="info-color px-3 mr-auto">
-                    Solicite la contraseña al propietario de la tienda.
-                    Si eres el propietario <a href='/admin/cl/settings/general'>compruébalo</a>.
-                  </small>
-                  <form id="password_access" class="p-3 has-validation modal-body" role="form">
-                    <label class="sr-only" for="password-input">Contraseña</label>
-                    <div class="form-group mb-0">
-                      <input type="password" name="password" class="form-control form-control-lg border-0" id="password-input" placeholder="Password" required
-                        oninput="event.target.classList.remove('is-valid', 'is-invalid')" >
-                      <div class="invalid-feedback">
-                        <div id="incorrect_password_msg">Contraseña incorrecta.</div>
-                        <div id="rate_limit_msg" class="d-none">Se excedió el límite de accesos a la tienda. Vuelva a intentarlo más tarde.</div>
-                      </div>
-                      <div class="valid-feedback">
-                        ¡Acceso autorizado!
-                      </div>
-                      <div class="text-right mt-2">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block authorize-button">Enviar</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-        </header>
-
-        <div class="content mx-auto text-center">
-          <div class="content-inner">
-                <div><img id="store-logo" src="https://images.jumpseller.com/store/compraslovers/store/logo/logo_cl.jpg?1754556393" alt="compraslovers" ></div>
-            <hr>
-              <p>Compras Lovers... Somos una empresa familiar que dejamos el corazón en lo que hacemos.</p>
-
-            <!-- E-mail registration -->
-
-              <div class="socials-icons">
-                <ul class="p-0">
-                </ul>
-              </div>
-          </div>
-        </div>
+  <section class="featured-products">
+    <h2>Productos destacados</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300?text=Producto+1" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p class="price">$19.990</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300?text=Producto+2" alt="Producto 2">
+        <h3>Producto 2</h3>
+        <p class="price">$29.990</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300?text=Producto+3" alt="Producto 3">
+        <h3>Producto 3</h3>
+        <p class="price">$39.990</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300?text=Producto+4" alt="Producto 4">
+        <h3>Producto 4</h3>
+        <p class="price">$49.990</p>
       </div>
     </div>
+  </section>
 
-  </body>
+  <footer class="footer">
+    <p>&copy; 2025 Compras Lovers. Todos los derechos reservados.</p>
+    <p><a href="#">Términos y condiciones</a> | <a href="#">Política de privacidad</a></p>
+  </footer>
+</body>
 </html>
-
-
